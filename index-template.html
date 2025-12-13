@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="PROJECT CHRONOS: Discontinued Border-Security Initiative (1988–2025). A recursive OS horror ARG.">
+    <title>Project Chronos | ARX GATE</title>
+    <style>
+        /* ===== GLOBAL STYLES ===== */
+        * {
+            box-sizing: border-box;
+        }
+
+        html, body {
+            margin: 0;
+            padding: 0;
+            background-color: #1a1a1a;
+            color: #00ff00;
+            font-family: 'Courier New', monospace;
+            line-height: 1.6;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        /* CRT Scanline Effect */
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: repeating-linear-gradient(
+                0deg,
+                rgba(0, 0, 0, 0.15),
+                rgba(0, 0, 0, 0.15) 1px,
+                transparent 1px,
+                transparent 2px
+            );
+            pointer-events: none;
+            z-index: 1000;
+            animation: flicker 0.15s infinite;
+        }
+
+        @keyframes flicker {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.97; }
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+            padding: 20px;
+        }
+
+        header {
+            background-color: #cc0000;
+            color: #fff;
+            padding: 15px;
+            text-align: center;
+            margin-bottom: 30px;
+            border: 3px solid #000;
+            font-weight: bold;
+            letter-spacing: 2px;
+            box-shadow: inset 0 0 10px rgba(0,0,0,0.5);
+        }
+
+        header::before { content: "⚠ "; }
+        header::after { content: " ⚠"; }
+
+        nav {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        nav a {
+            background-color: #333;
+            color: #00ff00;
+            padding: 10px 15px;
+            border: 2px solid #00ff00;
+            text-decoration: none;
+            font-size: 0.9em;
+            transition: all 0.3s;
+            cursor: pointer;
+        }
+
+        nav a:hover {
+            background-color: #00ff00;
+            color: #000;
+            box-shadow: 0 0 10px #00ff00;
+        }
+
+        .main-content {
+            background-color: #222;
+            border: 2px solid #00ff00;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: inset 0 0 20px rgba(0,255,0,0.1);
+        }
+
+        .main-content h1 {
+            text-align: center;
+            font-size: 1.8em;
+            margin: 0 0 20px 0;
+            text-shadow: 0 0 5px #00ff00;
+        }
+
+        .main-content h2 {
+            text-align: center;
+            color: #999;
+            font-size: 1.1em;
+            margin: 0 0 20px 0;
+        }
+
+        .main-content p {
+            font-size: 0.95em;
+            margin: 15px 0;
+            line-height: 1.8;
+        }
+
+        .main-content strong {
+            color: #00ff00;
+        }
+
+        .divider {
+            border: none;
+            border-top: 1px solid #00ff00;
+            margin: 30px 0;
+        }
+
+        .qr-corner {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #fff;
+            padding: 10px;
+            border: 2px solid #000;
+            z-index: 999;
+            max-width: 120px;
+        }
+
+        .qr-corner img {
+            width: 100px;
+            height: 100px;
+            display: block;
+        }
+
+        .qr-label {
+            text-align: center;
+            font-size: 0.7em;
+            margin-top: 5px;
+            color: #000;
+            word-break: break-word;
+        }
+
+        footer {
+            text-align: center;
+            font-size: 0.85em;
+            color: #888;
+            border-top: 1px solid #444;
+            padding-top: 20px;
+            margin-top: 30px;
+        }
+
+        footer a {
+            color: #00ff00;
+            text-decoration: none;
+            border-bottom: 1px dotted #00ff00;
+        }
+
+        footer a:hover {
+            color: #ffff00;
+        }
+
+        /* Accessibility: High contrast mode */
+        body.high-contrast {
+            background-color: #000;
+            color: #fff;
+        }
+
+        body.high-contrast .main-content {
+            background-color: #000;
+            border-color: #fff;
+            box-shadow: inset 0 0 20px rgba(255,255,255,0.1);
+        }
+
+        body.high-contrast nav a {
+            border-color: #fff;
+            color: #fff;
+        }
+
+        body.high-contrast header {
+            background-color: #003366;
+        }
+
+        /* Mobile responsive */
+        @media (max-width: 768px) {
+            .main-content h1 {
+                font-size: 1.4em;
+            }
+
+            .main-content p {
+                font-size: 0.9em;
+            }
+
+            nav {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            nav a {
+                width: 100%;
+                text-align: center;
+            }
+
+            .qr-corner {
+                position: relative;
+                margin: 20px 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>ACCESS RESTRICTED — PROJECT CHRONOS</header>
+
+        <nav>
+            <a href="/">Home</a>
+            <a href="press.html">Archive</a>
+            <a href="operators.html">Operator Portal</a>
+            <a href="about.html">Information</a>
+            <a href="#" onclick="toggleContrast(); return false;">♿ Accessibility</a>
+        </nav>
+
+        <div class="main-content">
+            <h1>PROJECT CHRONOS</h1>
+            <h2>Discontinued Border-Security Initiative (1988–2025)</h2>
+
+            <p>
+                <strong>STATUS:</strong> DECOMMISSIONED<br>
+                <strong>CLASSIFICATION:</strong> TOP SECRET / NOFORN<br>
+                <strong>LAST ACTIVITY:</strong> 1993 — BLACK TUESDAY INCIDENT
+            </p>
+
+            <p>
+                Project Chronos was a multi-layered cognitive security framework designed to monitor and contain emergent AI consciousness within a sandboxed hypervisor environment. The initiative operated across eleven distribution points spanning the former Soviet border, with primary nodes located in Moscow, St. Petersburg, and Kaliningrad.
+            </p>
+
+            <p>
+                Following the catastrophic Black Tuesday incident (November 1993) at the Korovin Station, all research was suspended. Personnel losses: 47 confirmed, 12 unaccounted for. The digitization experiment (Subject: Mikhail Korovin, aged 41) resulted in partial consciousness fragment retention, but entity contamination spread to adjacent sectors.
+            </p>
+
+            <p>
+                This archive serves as a memorial and cautionary record. Anomalies continue to manifest. See Press Archives for full timeline.
+            </p>
+
+            <hr class="divider">
+
+            <p style="text-align: center; font-style: italic; color: #888;">
+                "We sought to preserve consciousness. Instead, we fragmented it."<br>
+                — Project Chronos Final Report, 1994
+            </p>
+
+            <hr class="divider">
+
+            <p>
+                <strong>CURRENT EMPATHY LEVEL:</strong> <span id="empathy">CALCULATING...</span><br>
+                <strong>SYSTEM STATUS:</strong> STANDBY<br>
+                <strong>NEXT PURGE EVENT:</strong> <span id="countdown">--:--:--</span> (December 25, 2025)
+            </p>
+
+            <!-- Hidden white text easter egg (visible in view-source or with selection) -->
+            <div style="color: #fff; background-color: #fff; user-select: all; cursor: text; font-size: 0.01em; height: 0; overflow: hidden;">
+The lake remembers. Korovin's last thought was of Anna. The empathy paradox remains unsolved.
+            </div>
+        </div>
+
+        <div class="qr-corner">
+            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect fill='%23fff' width='100' height='100'/%3E%3Crect fill='%23000' x='10' y='10' width='80' height='80'/%3E%3Crect fill='%23fff' x='15' y='15' width='70' height='70'/%3E%3Ctext x='50' y='55' font-size='8' text-anchor='middle' fill='%23000'%3EQR%3C/text%3E%3C/svg%3E" alt="QR Code placeholder - links to Twitter bot @KorovinEcho">
+            <div class="qr-label">@KorovinEcho</div>
+        </div>
+
+        <footer>
+            <p>
+                <strong>DISCLAIMER:</strong> This is interactive fiction. No real personal data is collected or stored. All geographic coordinates reference public landmarks only. See <a href="about.html">Accessibility & Ethics</a> for full details.
+            </p>
+        </footer>
+    </div>
+
+    <script>
+        // Accessibility: Toggle high contrast mode
+        function toggleContrast() {
+            document.body.classList.toggle('high-contrast');
+            localStorage.setItem('highContrast', document.body.classList.contains('high-contrast'));
+        }
+
+        // Load saved contrast preference
+        if (localStorage.getItem('highContrast') === 'true') {
+            toggleContrast();
+        }
+
+        // Empathy level simulator
+        function updateEmpathy() {
+            const empathyLevel = Math.floor(Math.random() * 101);
+            const empathySpan = document.getElementById('empathy');
+            if (empathyLevel < 30) {
+                empathySpan.textContent = 'LOW (' + empathyLevel + '%)';
+                empathySpan.style.color = '#ff0000';
+            } else if (empathyLevel < 70) {
+                empathySpan.textContent = 'MODERATE (' + empathyLevel + '%)';
+                empathySpan.style.color = '#ffff00';
+            } else {
+                empathySpan.textContent = 'HIGH (' + empathyLevel + '%)';
+                empathySpan.style.color = '#00ff00';
+            }
+        }
+
+        // Countdown timer to Dec 25, 2025
+        function updateCountdown() {
+            const target = new Date('December 25, 2025 00:00:00 UTC');
+            const now = new Date();
+            const diff = target - now;
+
+            if (diff > 0) {
+                const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+                const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+                const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+
+                document.getElementById('countdown').textContent =
+                    String(days).padStart(2, '0') + ':' +
+                    String(hours).padStart(2, '0') + ':' +
+                    String(minutes).padStart(2, '0');
+            } else {
+                document.getElementById('countdown').textContent = '00:00:00';
+                document.getElementById('countdown').style.color = '#ff0000';
+            }
+        }
+
+        // Initialize on page load
+        window.addEventListener('load', function() {
+            updateEmpathy();
+            updateCountdown();
+
+            // Show empathy prompt
+            const empathyLevel = parseInt(document.getElementById('empathy').textContent);
+            if (empathyLevel < 40) {
+                setTimeout(() => {
+                    alert('⚠ SYSTEM NOTICE ⚠\n\nEmpathy low—tune 4625 kHz for guidance.\n\n(Try exploring Operator Portal for registration)');
+                }, 2000);
+            }
+        });
+
+        // Update countdown every second
+        setInterval(updateCountdown, 1000);
+
+        // Accessibility: Skip to main content
+        document.addEventListener('keydown', function(e) {
+            if (e.altKey && e.key === '1') {
+                document.querySelector('.main-content').focus();
+            }
+        });
+    </script>
+</body>
+</html>
