@@ -1,0 +1,67 @@
+# OS files
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+*~
+
+# IDE
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# Build artifacts
+build/
+dist/
+*.egg-info/
+__pycache__/
+*.pyc
+*.pyo
+
+# Dependencies
+node_modules/
+venv/
+env/
+
+# Sensitive files
+.env
+.env.local
+credentials.json
+secrets.json
+creds.json
+*.key
+*.pem
+
+# Logs
+*.log
+logs/
+
+# Temporary files
+.tmp/
+tmp/
+temp/
+
+# Asset cache
+.cache/
+*.cache
+
+# Audio processing temp files (Audacity)
+*.tmp.au
+*.au~
+
+# Image editing backups
+*.psd.bak
+*.xcf~
+
+# System generated
+.AppleDouble
+.LSOverride
+._*
+.Spotlight-V100
+.Trashes
+
+# Project-specific backups
+backup/
+*.backup
+*.old
